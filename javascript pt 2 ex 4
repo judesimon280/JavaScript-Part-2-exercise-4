@@ -1,0 +1,131 @@
+// Function that validates user input
+function validateInput(input) {
+
+    if (input === "") {
+        throw "Input cannot be empty";
+    }
+
+    if (typeof input !== "string") {
+        throw "Input must be a string";
+    }
+
+    if (input.length < 3) {
+        throw "Input must be at least 3 characters long";
+    }
+
+    return "Valid input: " + input;
+}
+
+
+// Testing validateInput
+try {
+    console.log(validateInput("Hi"));
+} catch (error) {
+    console.log("Error:", error);
+}
+
+try {
+    console.log(validateInput(123));
+} catch (error) {
+    console.log("Error:", error);
+}
+
+try {
+    console.log(validateInput("Javascript"));
+} catch (error) {
+    console.log("Error:", error);
+}
+
+
+// Function demonstrating multiple error types
+function divideNumbers(a, b) {
+
+    if (typeof a !== "number" || typeof b !== "number") {
+        throw "Both values must be numbers";
+    }
+
+    if (b === 0) {
+        throw "Cannot divide by zero";
+    }
+
+    return a / b;
+}
+
+
+// Testing divideNumbers
+try {
+    console.log(divideNumbers(20, 4));
+} catch (error) {
+    console.log("Error:", error);
+}
+
+try {
+    console.log(divideNumbers(10, 0));
+} catch (error) {
+    console.log("Error:", error);
+}
+
+try {
+    console.log(divideNumbers("ten", 2));
+} catch (error) {
+    console.log("Error:", error);
+}
+
+
+// Helper functions for string manipulation
+function makeUpperCase(str) {
+    return str.toUpperCase();
+}
+
+function makeLowerCase(str) {
+    return str.toLowerCase();
+}
+
+function reverseText(str) {
+    return str.split("").reverse().join("");
+}
+
+function countCharacters(str) {
+    return str.length;
+}
+
+
+// Testing string helper functions
+console.log(makeUpperCase("hello"));
+console.log(makeLowerCase("WORLD"));
+console.log(reverseText("Coding"));
+console.log(countCharacters("Javascript"));
+
+
+// Helper functions for array operations
+function getLargestNumber(arr) {
+    return Math.max(...arr);
+}
+
+function getSmallestNumber(arr) {
+    return Math.min(...arr);
+}
+
+function getArraySum(arr) {
+
+    let total = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
+
+    return total;
+}
+
+function removeDuplicates(arr) {
+    return [...new Set(arr)];
+}
+
+
+// Testing array helper functions
+let numbers = [4, 8, 15, 16, 23, 42, 8, 15];
+
+console.log(getLargestNumber(numbers));
+console.log(getSmallestNumber(numbers));
+console.log(getArraySum(numbers));
+console.log(removeDuplicates(numbers));
